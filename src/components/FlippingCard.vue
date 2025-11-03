@@ -61,13 +61,18 @@ export default {
 
 <style scoped lang="scss">
 .flipping-card {
-  --card-border-radius: 24px;
   position: relative;
+
   width: 280px;
   height: 400px;
-  border-radius: var(--card-border-radius);
-  transform-style: preserve-3d;
+
   transition-duration: 200ms;
+
+  border-radius: var(--card-border-radius);
+
+  --card-border-radius: 24px;
+  transform-style: preserve-3d;
+  -webkit-tap-highlight-color: transparent;
 
   &:not(.disabled) {
     cursor: pointer;
@@ -79,18 +84,23 @@ export default {
 
   &__side {
     position: absolute;
-    transform-style: preserve-3d;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+
+    overflow: hidden;
+
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
+
     transition-duration: var(--rotate-duration);
+
     border-radius: var(--card-border-radius);
-    overflow: hidden;
     box-shadow: 4px 4px 8px 0 black;
+
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
 
     & > * {
       width: 100%;
@@ -98,4 +108,5 @@ export default {
     }
   }
 }
+
 </style>
